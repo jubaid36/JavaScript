@@ -1,0 +1,74 @@
+/* Global reset & typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #1e293b, #0f172a);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background animated glow */
+body::before {
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.35;
+    z-index: 0;
+    animation: pulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9) translate(-10%, -10%);
+    }
+    100% {
+        transform: scale(1.15) translate(10%, 10%);
+    }
+}
+
+/* Modern Glowing Button */
+#get-location-button {
+    position: relative;
+    z-index: 1;
+    padding: 16px 40px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0ea5e9, #6366f1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.45),
+                0 8px 10px -6px rgba(14, 165, 233, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+/* Hover & Focus Effects */
+#get-location-button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 20px 35px -5px rgba(99, 102, 241, 0.6),
+                0 12px 15px -6px rgba(14, 165, 233, 0.45);
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+}
+
+/* Active / Click Effect */
+#get-location-button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 6px 15px -4px rgba(99, 102, 241, 0.4);
+}
