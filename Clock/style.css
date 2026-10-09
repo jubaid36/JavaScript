@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at 50% 20%, #1e1b4b 0%, #0f172a 60%, #020617 100%);
+    font-family: 'Poppins', sans-serif;
+    color: #f8fafc;
+    overflow: hidden;
+    position: relative;
+}
+
+
+body::before {
+    content: '';
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.28), rgba(236, 72, 153, 0.15), transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+    animation: floatGlow 10s ease-in-out infinite alternate;
+}
+
+@keyframes floatGlow {
+    0% { transform: translate(-15%, -10%) scale(1); }
+    100% { transform: translate(15%, 15%) scale(1.15); }
+}
+
+
+.clock-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6),
+                inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 28px;
+    padding: 45px 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+    max-width: 90%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clock-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px -12px rgba(99, 102, 241, 0.25),
+                inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.clock-badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #a5b4fc;
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 6px 18px;
+    border-radius: 9999px;
+}
+
+
+#time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(2.5rem, 8vw, 4.8rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 0 0 25px rgba(129, 140, 248, 0.6),
+                 0 0 50px rgba(99, 102, 241, 0.3);
+    min-width: 300px;
+    user-select: none;
+}
+
+
+.controls {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#stop-btn {
+    position: relative;
+    padding: 14px 36px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ef4444, #f43f5e);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 10px 20px -5px rgba(239, 68, 68, 0.45);
+    transition: all 0.25s ease;
+}
+
+#stop-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 15px 30px -5px rgba(239, 68, 68, 0.65);
+    background: linear-gradient(135deg, #f87171, #fb7185);
+}
+
+#stop-btn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 5px 12px -3px rgba(239, 68, 68, 0.4);
+}
+
+
+#stop-btn.resume {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.45);
+}
+
+#stop-btn.resume:hover {
+    box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.65);
+    background: linear-gradient(135deg, #34d399, #10b981);
+}
